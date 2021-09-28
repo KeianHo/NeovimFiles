@@ -9,6 +9,7 @@ Plug 'preservim/nerdtree'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lervag/vimtex'
+Plug 'SirVer/ultisnips'
 
 call plug#end()
 
@@ -40,6 +41,22 @@ inoremap <silent><expr> <TAB>
     \ <SID>check_back_space() ? "\<TAB>" :
     \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+let g:coc_snippet_next = '<tab>'
+
+let g:coc_snippet_prev = '<s-tab>'
+
+" Determite if in completion, snippet or text mode and set tab accordingly
+
+function! Tab_Or_Complete()
+if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+    return "\<C-N>"
+else
+    return "\<Tab>"
+
+endif
+endfunction
+
+inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 
 function! s:check_back_space() abort
  let col = col('.') - 1
@@ -152,9 +169,12 @@ inoremap hh <ESC>
 "Allow editing of init.vim and reload on fly
 nmap <leader>vr :e C:/Users/keian/AppData/Local/nvim/init.vim<cr>
 nmap <leader>so : source C:/Users/keian/AppData/Local/nvim/init.vim<cr>
+nmap <leader>us :UltiSnipsEdit<cr> 
 
 "spelling stuff
 
+inoremap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u
+ 
 set spelllang=en_gb
 map <leader>ss :setlocal spell!<cr>
 hi SpellBad ctermbg=124
