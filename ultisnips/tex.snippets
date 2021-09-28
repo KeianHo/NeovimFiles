@@ -1,7 +1,7 @@
 snippet beg "begin{} / end{}" bA
 \begin{$1}
   $0
-\begin{$1}
+\end{$1}
 endsnippet
 
 snippet dm "Math" wA
@@ -13,3 +13,18 @@ endsnippet
 snippet // "Fraction" iA
 \frac{$1}{$2}$0
 endsnippet
+
+snippet startnotes "Stat of file" bA
+\documentclass{article}
+\usepackage{../../../myNotes}
+\title{$1}
+\author{Keian Ho}
+\date{\today}
+
+\begin{document}
+\maketitle
+$0
+
+\end{document}
+endsnippet
+	

@@ -16,6 +16,7 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plugin Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:UltiSnipsExpandTrigger = '<f5>'
 
 " settings for sumatraPDF
 let g:vimtex_view_general_viewer = 'SumatraPDF'
@@ -52,7 +53,6 @@ if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
     return "\<C-N>"
 else
     return "\<Tab>"
-
 endif
 endfunction
 
