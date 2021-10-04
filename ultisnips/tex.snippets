@@ -17,6 +17,8 @@ endsnippet
 snippet startnotes "Stat of file" bA
 \documentclass{article}
 \usepackage{../../../myNotes}
+\usepackage{graphicx}
+\graphicspath{ {./figures/} }
 \title{$1}
 \author{Keian Ho}
 \date{\today}
@@ -28,3 +30,35 @@ $0
 \end{document}
 endsnippet
 	
+snippet hasb "Haskell lstlisting" bA
+\begin{lstlisting}[language=Haskell]
+	$0
+\end{lstlisting}
+endsnippet
+
+snippet mk "Math" wA
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
+endsnippet
+
+snippet "([a-zA-Z])mbb" "Math black board" riA
+\mathbb{`!p snip.rv=match.group(1).upper()`}
+endsnippet
+
+snippet llha "Haskell language listings" bA
+\begin{lstlisting}[language=Haskell]
+	$1
+\end{lstlisting}
+$0
+endsnippet
+
+snippet ijy "Image stuff" bA
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{$1}
+\end{figure}
+$0
+endsnippet
